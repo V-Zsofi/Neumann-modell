@@ -4,8 +4,8 @@
 - [1 User Interaction](#1-user-interaction)
 - [2 Program Input](#2-program-input)
 - [3 Possible Instructions](#3-possible-instructions)
-[4 Requirements](#4-requirements)
-- [5 Running the Program](#4-running-the-program)
+- [4 Requirements](#4-requirements)
+- [5 Running the Program](#5-running-the-program)
 
 ## 1 User Interaction
 The user interacts with the computer via the terminal (cout/cin). At startup, the computer requests a text file from the user that contains the instructions to be executed. The text file should be placed in the `Neumann_modell\input` directory.
