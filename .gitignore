@@ -1,0 +1,15 @@
+# Fejlesztői beállítások
+.vscode/
+
+# Fordított fájlok
+*.exe
+*.out
+*.obj
+*.dll
+
+# Build fájlok
+/build/
+bin/
+obj/
+
+# Egyéb felesleges fájlok
