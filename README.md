@@ -1,7 +1,11 @@
+# Neumann-modell
+
 ## Table of Contents
 - [1 User Interaction](#1-user-interaction)
 - [2 Program Input](#2-program-input)
 - [3 Possible Instructions](#3-possible-instructions)
+[4 Requirements](#4-requirements)
+- [5 Running the Program](#4-running-the-program)
 
 ## 1 User Interaction
 The user interacts with the computer via the terminal (cout/cin). At startup, the computer requests a text file from the user that contains the instructions to be executed. The text file should be placed in the `Neumann_modell\input` directory.
@@ -30,3 +34,30 @@ The computer starts execution from memory address 0x0000. The following instruct
 - **PRINT OPERAND** -> Prints the variable at the OPERAND address to the output (std::cout).
 - **BRANCHGT OPERAND** -> The next instruction address changes to OPERAND if ACC > 0.
 - **JUMP OPERAND** -> The next instruction address changes to OPERAND.
+
+## 4 Requirements
+To run this program, you will need the following:
+- g++ (GNU Compiler Collection)
+
+Once you have the necessary environment set up, follow the compilation and execution instructions below to run the program successfully.
+
+## 5 Running the Program
+
+### 1. Compile the source files
+After downloading the repository, open the terminal (or Command Prompt) and navigate to the `Neumann-modell` folder.  
+To compile the program, use the following command:
+
+```bash
+g++ -o program src/*.cpp
+```
+This will compile all C++ files located in the src folder and generate an executable named `program`.
+
+### 2. Run the program
+Once the program is compiled you can run it with:
+
+```bash
+program
+```
+### 3. Provide the Input File
+
+After running the program, the computer will prompt you to provide an input file that contains the instructions. The file should be placed in the `Neumann_modell\input` directory. The program will use this file to load the instructions and memory data.

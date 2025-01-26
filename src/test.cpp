@@ -1,12 +1,11 @@
 #include <iostream>
-#include <algorithm>
 #include <sstream>
 #include <string>
 #include "instruction.h"
 #include "controlUnit.h"
 #include "gtest_lite.h"
 
-int main()
+void RunTest()
 {
     std::cout << "Testing....." << std::endl;
 
@@ -103,7 +102,7 @@ int main()
         }
         catch (const char *p)
         {
-            EXPECT_STREQ("Cant jump here\n", p);  // Verifies the exception for invalid jump
+            EXPECT_STREQ("Can't jump here\n", p);  // Verifies the exception for invalid jump
         }
         JUMP jump3(100);  // Invalid jump (out of bounds)
         try
@@ -112,7 +111,7 @@ int main()
         }
         catch (const char *p)
         {
-            EXPECT_STREQ("Cant jump here\n", p);
+            EXPECT_STREQ("Can't jump here\n", p);
         }
     }
     END
@@ -136,7 +135,7 @@ int main()
         }
         catch (const char *p)
         {
-            EXPECT_STREQ("Cant jump here\n", p);
+            EXPECT_STREQ("Can't jump here\n", p);
         }
         BRANCHGT branch4(100);  // Invalid jump (out of bounds)
         try
@@ -145,7 +144,7 @@ int main()
         }
         catch (const char *p)
         {
-            EXPECT_STREQ("Cant jump here\n", p);
+            EXPECT_STREQ("Can't jump here\n", p);
         }
     }
     END
@@ -300,40 +299,5 @@ int main()
     std::cout
         << "Testing done" << std::endl;
     std::cout << "----------------------------------------------------" << std::endl;
-
-    // Main loop for interactive testing with user input
-    bool exit = false;
-    while (!exit)
-    {
-        std::cout << "Type exit to exit the program" << std::endl;
-        std::string file;
-        std::cout << "Filename: ";
-        std::cin >> file;
-        std::string tmpexit;
-        tmpexit.resize(file.size());
-        transform(file.begin(), file.end(), tmpexit.begin(), ::tolower);
-        if (tmpexit == "exit")
-        {
-            break;
-            exit = true;
-        }
-        ControlUnit CUmain(file);  // Initializes the control unit with the input file
-        bool cycleexit = CUmain.NotValidMemory();
-        while (!cycleexit)
-        {
-            try
-            {
-                CUmain.cycle();  // Executes one cycle of the control unit
-            }
-            catch (const char *e)
-            {
-                std::cout << e << '\n';
-                cycleexit = true;  // Exits cycle if an exception occurs
-            }
-        }
-    }
-
     GTEND(std::cerr);  // Ends the testing framework
-
-    return 0;
 }
